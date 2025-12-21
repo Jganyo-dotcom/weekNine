@@ -51,10 +51,17 @@ const updateArticles = async (req, res) => {
 
 const allArticles = async (req, res) => {
   try {
-    const Articles = await ArticleSchema.find({}).populate(
-      "author",
-      "name email" // populate author, include only name and email
-    );
+    const { page, limit } = req.query;
+    const skip = (parseInt(page) - 1) * parseInt(limit);
+    const Limit = parseInt(limit);
+    const Articles = await ArticleSchema.find({})
+      .populate(
+        "author",
+        "name email" // populate author, include only name and email
+      )
+      .limit(Limit)
+      .skip(skip)
+      .sort({ createdAt: -1 });
     res.status(200).json({
       message: "success",
       Articles,
