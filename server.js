@@ -1,8 +1,8 @@
 const app = require("./src/app");
-const mongoose = require("./src/config/connection")
+const mongoose = require("./src/config/connection");
 PORT = process.env.PORT || 4555;
 
-app.listen(PORT,async () => {
- await mongoose();
+mongoose();
+app.listen(PORT, async () => {
   console.log(`server is running on port ${PORT}`);
 });

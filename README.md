@@ -35,11 +35,13 @@ Example:
 Code
 MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.warsqwd.mongodb.net/<dbname>?retryWrites=true&w=majority
 PORT=4001
+
+
  Running the Project
 Start the server in development mode with file watching:
 
-
 npm run dev
+
 Or run normally:
 
 bash
@@ -70,4 +72,6 @@ Ensure your IP address is whitelisted in MongoDB Atlas.
 Use the .env.example file as a template for your environment variables.
 
 If you encounter querySrv ECONNREFUSED, double-check your MongoDB URI and Atlas cluster settings.
+
+if you do as stated above then you shouldnt encouter any errors 
 
